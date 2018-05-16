@@ -9,12 +9,13 @@ export default () => {
         'authors/:id': 'showAuthor'
     };
     let controller = {
-        async showAuthors(){            
-            let collection = await app.data;          
+        showAuthors(){            
+            let collection = app.data;        
+            console.log('showauthors', collection);  
             app.showViewMain(new AuthorsView({collection: collection}));    
         },
-        async showAuthor(id){
-            let collection = await app.data;     
+        showAuthor(id){
+            let collection = app.data;     
             let model = collection.find((data)=>{              
                 return data.id==id;
             }); 
