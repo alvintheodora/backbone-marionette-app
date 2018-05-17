@@ -15,14 +15,13 @@ let App = Mn.Application.extend({
     
     onBeforeStart:  function(){
         this.collection = new Users();
-        this.data = initModel();//set collection by fetch async 
+        this.initModel = initModel();//set collection by fetch async 
         this.router = initRouter();   
         this.root = new MainView({el: '#container'});    
         this.showViewMain = (view) => {     
             this.root.showChildView('main', view);  
         };        
 
-        console.log('onbeforestart', this.data);  
     },
     onStart: function() {                    
         Backbone.history.start(); 

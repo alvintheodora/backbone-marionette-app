@@ -13,6 +13,15 @@ module.exports = {
           test: /\.html$/,
           exclude: /node_modules/,
           use: {loader: 'html-loader'}
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          }
+        ]
       }
   ]
   },

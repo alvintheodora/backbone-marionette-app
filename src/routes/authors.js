@@ -1,5 +1,6 @@
 import AuthorsView from '../views/AuthorsView';
-import AuthorView from '../views/AuthorView';
+import AuthorsDetail from '../views/AuthorsDetail';
+import AuthorDetail from '../views/AuthorDetail';
 import app from '../app';
 
 export default () => {
@@ -9,17 +10,11 @@ export default () => {
         'authors/:id': 'showAuthor'
     };
     let controller = {
-        showAuthors(){            
-            let collection = app.data;        
-            console.log('showauthors', collection);  
-            app.showViewMain(new AuthorsView({collection: collection}));    
+        showAuthors(){                        
+            app.showViewMain(new AuthorsView({collection: app.collection}));    
         },
-        showAuthor(id){
-            let collection = app.data;     
-            let model = collection.find((data)=>{              
-                return data.id==id;
-            }); 
-            app.showViewMain(new AuthorView({model: model}));
+        showAuthor(id){          
+            app.showViewMain(new AuthorsDetail({collection: app.collection,id}));
         }
     };
 

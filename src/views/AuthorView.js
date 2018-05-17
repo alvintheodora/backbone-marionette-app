@@ -4,6 +4,6 @@ import Mn from 'backbone.marionette';
 
 let AuthorView = Mn.View.extend({
     template: _.template(template),
-    tagName: 'ul'
+    tagName: 'ul'   
 });
 export default AuthorView;
